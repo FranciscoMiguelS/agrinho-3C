@@ -1,0 +1,208 @@
+/* Reset e Variáveis de Paleta Voltada ao Meio Ambiente / Agro */
+:root {
+    --bg-dark: #121612;      /* Fundo quase negro, focado em terra queimada/profunda */
+    --card-bg: #1c221c;      /* Verde musgo bem escuro */
+    --text-light: #e4e6e4;   /* Texto claro e limpo */
+    --accent-color: #c8963e; /* Cor inicial: Dourado grão/agro (Muda via JS para vermelho ecologia) */
+    --border-color: #2a352a;
+    --font-title: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    transition: background 0.5s ease;
+}
+
+/* Hero Section / Manifesto Header */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    /* Fundo conceitual simulando terra batida e lavoura escura */
+    background: linear-gradient(135deg, #182218 0%, #291a10 100%);
+    border-bottom: 4px solid var(--accent-color);
+    transition: border-color 0.5s ease;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.tagline {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    font-weight: 900;
+    color: var(--accent-color);
+    transition: color 0.5s ease;
+}
+
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 20px 0;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #a0a6a0;
+    margin-bottom: 40px;
+}
+
+/* Botões Interativos */
+.toggle-container {
+    display: inline-flex;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-toggle {
+    background: transparent;
+    border: none;
+    color: #808680;
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-toggle.active {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+/* Seção de Dados */
+.dados-container, .noticias-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    text-align: center;
+    color: #808680;
+    margin-bottom: 50px;
+    font-size: 0.95rem;
+}
+
+.grid-dados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 15fr));
+    gap: 30px;
+}
+
+.card-dado {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-dado h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a0a6a0;
+    margin-bottom: 15px;
+}
+
+.card-dado .numero {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+}
+
+/* Bloco de Notícias */
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.noticia-card {
+    background: linear-gradient(to bottom, #1c221c, #151a15);
+    border-left: 3px solid var(--accent-color);
+    padding: 30px;
+    border-radius: 4px;
+}
+
+.noticia-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.noticia-tag.urgent {
+    color: #d94126;
+}
+
+.noticia-tag.green {
+    color: #4caf50;
+}
+
+.noticia-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.noticia-card p {
+    color: #a0a6a0;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border-color);
+    color: #606660;
+    font-size: 0.85rem;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    .grid-dados, .grid-noticias {
+        grid-template-columns: 1fr;
+    }
+}

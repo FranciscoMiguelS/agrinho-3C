@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Chão do Brasil: O Peso da Terra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <span class="tagline">BRASIL 2026 // DOIS LADOS DA MESMA MOEDA</span>
+            <h1>O Agro Alimenta ou o Agro Devora?</h1>
+            <p class="subtitle">Uma imersão interativa sobre a força econômica e as cicatrizes ambientais no solo brasileiro.</p>
+            
+            <div class="toggle-container">
+                <button class="btn-toggle active" id="btn-agro" onclick="mudarPerspectiva('agro')">Foco Econômico</button>
+                <button class="btn-toggle" id="btn-eco" onclick="mudarPerspectiva('eco')">Foco Ecológico</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="dados-container">
+        <h2 class="section-title">O Termômetro da Terra</h2>
+        <p class="section-desc">Clique nos botões acima para alternar a realidade dos dados atuais de 2026.</p>
+        
+        <div class="grid-dados">
+            <div class="card-dado">
+                <h3 id="label-dado1">Participação no PIB</h3>
+                <div class="numero" id="valor-dado1">7,1%</div>
+                <p id="desc-dado1">Representação direta da agropecuária na riqueza total gerada pelo Brasil após o fechamento do último ano.</p>
+            </div>
+
+            <div class="card-dado">
+                <h3 id="label-dado2">Balança Comercial</h3>
+                <div class="numero" id="valor-dado2">~50%</div>
+                <p id="desc-dado2">De tudo o que o Brasil exporta para o mundo, metade vem do complexo agroindustrial.</p>
+            </div>
+
+            <div class="card-dado">
+                <h3 id="label-dado3">Projeção de Crescimento (2026)</h3>
+                <div class="numero" id="valor-dado3">+0,5%</div>
+                <p id="desc-dado3">Ritmo mais moderado e desaceleração devido a ciclos pecuários e ajustes climáticos severos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="noticias-container">
+        <h2 class="section-title">Manchetes do Solo (2026)</h2>
+        
+        <div class="grid-noticias">
+            <article class="noticia-card">
+                <span class="noticia-tag">Economia & Mercado</span>
+                <h3>2026: O ano em que a agenda ambiental entra de vez no preço dos ativos</h3>
+                <p>O mercado financeiro internacional passa a precificar o risco climático diretamente no crédito do produtor brasileiro. Ignorar critérios ESG virou prejuízo imediato.</p>
+            </article>
+
+            <article class="noticia-card">
+                <span class="noticia-tag urgent">Fiscalização</span>
+                <h3>Satelites com IA intensificam multas por queima e desmate sem CAR</h3>
+                <p>Órgãos ambientais cruzam dados em tempo real. Intervenções mínimas em Áreas de Preservação Permanente (APP) geram embargos automáticos e corte de financiamento rural.</p>
+            </article>
+
+            <article class="noticia-card">
+                <span class="noticia-tag green">Sustentabilidade</span>
+                <h3>Transição Energética: Biogás do agro ganha força no interior</h3>
+                <p>Resíduos da agropecuária em expansão mostram potencial para suprir até 62% da demanda nacional de diesel, abrindo uma rota verde no centro-oeste.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Manifesto Interativo Terra Brasilis. Dados baseados em relatórios de transição econômica e alertas climáticos recentes.</p>
+    </footer>
+
+    <script>
+        function mudarPerspectiva(lado) {
+            const btnAgro = document.getElementById('btn-agro');
+            const btnEco = document.getElementById('btn-eco');
+            
+            const dado1 = document.getElementById('valor-dado1');
+            const label1 = document.getElementById('label-dado1');
+            const desc1 = document.getElementById('desc-dado1');
+            
+            const dado2 = document.getElementById('valor-dado2');
+            const label2 = document.getElementById('label-dado2');
+            const desc2 = document.getElementById('desc-dado2');
+            
+            const dado3 = document.getElementById('valor-dado3');
+            const label3 = document.getElementById('label-dado3');
+            const desc3 = document.getElementById('desc-dado3');
+
+            if (lado === 'agro') {
+                btnAgro.classList.add('active');
+                btnEco.classList.remove('active');
+                document.body.style.setProperty('--accent-color', '#c8963e');
+                
+                dado1.innerText = "7,1%";
+                label1.innerText = "Participação no PIB";
+                desc1.innerText = "Representação direta da agropecuária na riqueza total gerada pelo Brasil após o fechamento do último ano.";
+                
+                dado2.innerText = "~50%";
+                label2.innerText = "Balança Comercial";
+                desc2.innerText = "De tudo o que o Brasil exporta para o mundo, metade vem do complexo agroindustrial.";
+                
+                dado3.innerText = "+0,5%";
+                label3.innerText = "Projeção de Crescimento (2026)";
+                desc3.innerText = "Ritmo mais moderado e desaceleração devido a ciclos pecuários e ajustes climáticos severos.";
+            } else {
+                btnEco.classList.add('active');
+                btnAgro.classList.remove('active');
+                // Altera a cor de destaque para um tom de alerta ecológico (vermelho terra / queimada)
+                document.body.style.setProperty('--accent-color', '#d94126');
+                
+                dado1.innerText = "9,4%";
+                label1.innerText = "Avanço Tecnológico Ambiental";
+                desc1.innerText = "Crescimento anual de patentes em agricultura digital foca em tentar mitigar erros e frear o uso excessivo de recursos.";
+                
+                dado2.innerText = "Zero";
+                label2.innerText = "Margem de Tolerância";
+                desc2.innerText = "União Europeia e fundos internacionais barram commodities sem rastreabilidade total de desmatamento.";
+                
+                dado3.innerText = "100%";
+                label3.innerText = "Risco de Restrição";
+                desc3.innerText = "Propriedades rurais que não validarem o CAR enfrentam corte total de linhas de crédito tradicionais neste ano.";
+            }
+        }
+    </script>
+</body>
+</html>
